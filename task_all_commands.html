@@ -3,14 +3,8 @@
 <head>
   <title>String Methods Practice</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-    pre {
-      background: #f4f4f4;
-      padding: 10px;
-      border-radius: 5px;
-    }
+    body { font-family: Arial, sans-serif; }
+    pre  { background:#f4f4f4; padding:10px; border-radius:5px; }
   </style>
 </head>
 <body>
@@ -20,49 +14,72 @@
   <script>
     let output = "";
 
-    let str = "  Hello, JavaScript World!  ";
+    // ‼️ Ask the user for a string
+    let str = prompt("Enter a string to explore its methods:");
+    if (str === null) {               // user clicked “Cancel”
+      document.getElementById("output").textContent = "No string provided.";
+      throw new Error("Execution halted – no input string.");
+    }
 
-    // Basic methods
-    output += "Original: '" + str + "'\n";
-    output += "Length: " + str.length + "\n";
-    output += "Trim: '" + str.trim() + "'\n";
-    output += "To UpperCase: " + str.toUpperCase() + "\n";
-    output += "To LowerCase: " + str.toLowerCase() + "\n";
+    /* -----------------------------------------------------------
+       BASIC
+    ----------------------------------------------------------- */
+    output += `Original: '${str}'\n`;
+    output += `Length: ${str.length}\n`;
+    output += `Trim: '${str.trim()}'\n`;
+    output += `To UpperCase: ${str.toUpperCase()}\n`;
+    output += `To LowerCase: ${str.toLowerCase()}\n`;
 
-    // Searching methods
-    output += "Index of 'JavaScript': " + str.indexOf("JavaScript") + "\n";
-    output += "Last Index of 'o': " + str.lastIndexOf("o") + "\n";
-    output += "Includes 'World': " + str.includes("World") + "\n";
-    output += "Starts with '  Hello': " + str.startsWith("  Hello") + "\n";
-    output += "Ends with '!  ': " + str.endsWith("!  ") + "\n";
+    /* -----------------------------------------------------------
+       SEARCHING
+    ----------------------------------------------------------- */
+    output += `Index of 'JavaScript': ${str.indexOf("JavaScript")}\n`;
+    output += `Last Index of 'o': ${str.lastIndexOf("o")}\n`;
+    output += `Includes 'World': ${str.includes("World")}\n`;
+    output += `Starts with '  Hello': ${str.startsWith("  Hello")}\n`;
+    output += `Ends with '!  ': ${str.endsWith("!  ")}\n`;
 
-    // Extracting methods
-    output += "Slice (8, 18): " + str.slice(8, 18) + "\n";
-    output += "Substring (8, 18): " + str.substring(8, 18) + "\n";
-    output += "Substr (8, 10): " + str.substr(8, 10) + "\n";
+    /* -----------------------------------------------------------
+       EXTRACTING
+    ----------------------------------------------------------- */
+    output += `Slice (8, 18): ${str.slice(8, 18)}\n`;
+    output += `Substring (8, 18): ${str.substring(8, 18)}\n`;
+    output += `Substr (8, 10): ${str.substr(8, 10)}\n`;
 
-    // Replacing and splitting
-    output += "Replace 'JavaScript' with 'JS': " + str.replace("JavaScript", "JS") + "\n";
-    output += "Split by space: " + str.trim().split(" ").join(", ") + "\n";
+    /* -----------------------------------------------------------
+       REPLACING / SPLITTING
+    ----------------------------------------------------------- */
+    output += `Replace 'JavaScript' with 'JS': ${str.replace("JavaScript","JS")}\n`;
+    output += `Split by space: ${str.trim().split(" ").join(", ")}\n`;
 
-    // Repeat and concat
-    output += "Repeat 2 times: " + str.trim().repeat(2) + "\n";
-    output += "Concat with ' Practice': " + str.trim().concat(" Practice") + "\n";
+    /* -----------------------------------------------------------
+       REPEAT / CONCAT
+    ----------------------------------------------------------- */
+    output += `Repeat 2 times: ${str.trim().repeat(2)}\n`;
+    output += `Concat with ' Practice': ${str.trim().concat(" Practice")}\n`;
 
-    // char and code
-    output += "Char at index 1: " + str.charAt(1) + "\n";
-    output += "Char code at index 1: " + str.charCodeAt(1) + "\n";
+    /* -----------------------------------------------------------
+       CHAR / CODE
+    ----------------------------------------------------------- */
+    output += `Char at index 1: ${str.charAt(1)}\n`;
+    output += `Char code at index 1: ${str.charCodeAt(1)}\n`;
 
-    // pad methods
+    /* -----------------------------------------------------------
+       PADDING
+    ----------------------------------------------------------- */
     let numStr = "5";
-    output += "Pad Start (5): " + numStr.padStart(5, "0") + "\n";
-    output += "Pad End (5): " + numStr.padEnd(5, "0") + "\n";
+    output += `Pad Start (5): ${numStr.padStart(5,"0")}\n`;
+    output += `Pad End (5): ${numStr.padEnd(5,"0")}\n`;
 
-    // Match & Search
-    output += "Match 'Java': " + str.match(/Java/) + "\n";
-    output += "Search 'Script': " + str.search("Script") + "\n";
+    /* -----------------------------------------------------------
+       REGEX / SEARCH
+    ----------------------------------------------------------- */
+    output += `Match 'Java': ${str.match(/Java/)}\n`;
+    output += `Search 'Script': ${str.search("Script")}\n`;
 
-    // Display
+    /* -----------------------------------------------------------
+       DISPLAY
+    ----------------------------------------------------------- */
     document.getElementById("output").textContent = output;
   </script>
 </body>
